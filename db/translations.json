@@ -1,0 +1,14 @@
+[
+{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"image_db"},
+{"type":"table","name":"translations","database":"image_db","data":
+[
+{"id":"31","language":"hi","photos":"sample_images\/4._sample.jpg","original_text":"I , Suresh Padala , here by declare that all the information Submitted by me in the application form is correct , true and valid . I will present the Supporting documents as and when required .","translated_text":"मैं, सुरेश पडाला, यहाँ यह घोषणा करते हैं कि आवेदन पत्र में मेरे द्वारा प्रस्तुत सभी जानकारी सही, सही और मान्य है।मैं आवश्यक होने पर सहायक दस्तावेजों को प्रस्तुत करूंगा।"},
+{"id":"32","language":"gu","photos":"sample_images\/4._sample.jpg","original_text":"I , Suresh Padala , here by declare that all the information Submitted by me in the application form is correct , true and valid . I will present the Supporting documents as and when required .","translated_text":"હું, સુરેશ પાદલા, અહીં ઘોષણા કરીને કે અરજી ફોર્મમાં મારા દ્વારા સબમિટ કરેલી બધી માહિતી સાચી, સાચી અને માન્ય છે.હું જ્યારે જરૂરી હોય ત્યારે સહાયક દસ્તાવેજો રજૂ કરીશ."},
+{"id":"33","language":"en","photos":"sample_images\/6. sample.png","original_text":"सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है । उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए ।","translated_text":"All humans have congenital freedom and equality in terms of pride and rights.They have the gift of intelligence and conscience and they should treat them with a sense of brotherhood."},
+{"id":"34","language":"gu","photos":"sample_images\/6. sample.png","original_text":"सभी मनुष्यों को गौरव और अधिकारों के मामले में जन्मजात स्वतन्त्रता और समानता प्राप्त है । उन्हें बुद्धि और अन्तरात्मा की देन प्राप्त है और परस्पर उन्हें भाईचारे के भाव से बर्ताव करना चाहिए ।","translated_text":"બધા માણસોમાં ગૌરવ અને અધિકારોની દ્રષ્ટિએ જન્મજાત સ્વતંત્રતા અને સમાનતા હોય છે.તેમની પાસે બુદ્ધિ અને અંત conscience કરણની ભેટ છે અને તેઓએ તેમની સાથે ભાઈચારોની ભાવનાથી વર્તવું જોઈએ."},
+{"id":"35","language":"en","photos":"sample_images\/7. sample.jpg","original_text":"ਮਹਿਲਾ ਅਤੇ ਅਖਿਲ ਦੀ ਸੀ ਬੂਟਿਆਂ , ਵੇ ਧੀ ਮਯ , ਅਮਲੀ , ਅਬਰਕ , ਮਕ ਨਾਮ ਲੀਗਲ ਰੈਸਮੀ ਕਿਰਦਾਰ ਕੇ ਅਗਲ હોય છે અને તેની પર બંધુત્વની ભાવનાથી વવું જોઈએ .","translated_text":"Women's c boards and Akhil's c boards, practical, abstinations, yes, the name Legal Received aorta"},
+{"id":"36","language":"hi","photos":"sample_images\/7. sample.jpg","original_text":"ਮਹਿਲਾ ਅਤੇ ਅਖਿਲ ਦੀ ਸੀ ਬੂਟਿਆਂ , ਵੇ ਧੀ ਮਯ , ਅਮਲੀ , ਅਬਰਕ , ਮਕ ਨਾਮ ਲੀਗਲ ਰੈਸਮੀ ਕਿਰਦਾਰ ਕੇ ਅਗਲ હોય છે અને તેની પર બંધુત્વની ભાવનાથી વવું જોઈએ .","translated_text":"महिला सी बोर्ड और अखिल के सी बोर्ड, व्यावहारिक, संयोजन, हाँ, नाम कानूनी महाधमनी प्राप्त हुआ"}
+]
+}
+]
