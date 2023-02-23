@@ -40,11 +40,27 @@ def translate_text(text, target_language):
     return translator.translate(text, dest=target_language).text
 
 
+def temp_selection(lang):
+    result = ""
+    if lang == "english":
+        result = "en"
+
+    elif lang == "hindi":
+        result = "hi"
+
+    elif lang == "gujarati":
+        result = "gu"
+
+    return result
+
+
 def main():
     images = np.array(Image.open("6. sample.png"))
     response = CloudVisionTextExtractor(images)
     ocr = getTextFromVisionResponse(response)
-    trans = translate_text(ocr, "en")
+    
+    lang = temp_selection("english")
+    trans = translate_text(ocr, lang)
 
     # print(ocr)
     # print(trans)
