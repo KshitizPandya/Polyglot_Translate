@@ -54,16 +54,15 @@ def temp_selection(lang):
     return result
 
 
-def main():
-    images = np.array(Image.open("6. sample.png"))
-    response = CloudVisionTextExtractor(images)
-    ocr = getTextFromVisionResponse(response)
+images = np.array(Image.open("6. sample.png"))
+response = CloudVisionTextExtractor(images)
+ocr = getTextFromVisionResponse(response)
     
-    lang = temp_selection("english")
-    trans = translate_text(ocr, lang)
+lang = temp_selection("english")
+trans = translate_text(ocr, lang)
 
-    # print(ocr)
-    # print(trans)
+# print(ocr)
+# print(trans)
 
 if __name__ == "__main__":
     main()
