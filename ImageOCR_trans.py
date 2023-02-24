@@ -64,5 +64,5 @@ trans = translate_text(ocr, lang)
 # print(ocr)
 # print(trans)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
