@@ -5,24 +5,30 @@ import numpy as np
 from PIL import Image
 from googletrans import Translator
 
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "D:/vision API key/polyglot-379405-1cb386f1dbbd.json"
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "D:/vision API key/basic-thinker-365113-0522ec8ca559.json"
-print('Credendtials from environ: {}'.format(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')))
+def extract_text_from_image(image_path):
+    # Load the image
+    try:
+        image = cv2.imread(image_path)
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 
-def CloudVisionTextExtractor(handwritings):
-    # convert image from numpy to bytes for submission to Google Cloud Vision
-    _, encoded_image = cv2.imencode('.png', handwritings)
+    # Convert image from numpy to bytes for submission to Google Cloud Vision
+    _, encoded_image = cv2.imencode('.png', image)
     content = encoded_image.tobytes()
-    image = vision.Image(content=content)
+    vision_image = vision.Image(content=content)
 
-    # feed handwriting image segment to the Google Cloud Vision API
+    # Feed image to the Google Cloud Vision API
     client = vision.ImageAnnotatorClient()
-    response = client.document_text_detection(image=image)
+    try:
+        response = client.document_text_detection(image=vision_image)
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
 
-    return response
-
-
-def getTextFromVisionResponse(response):
+    # Extract the text from the response
     texts = []
     for page in response.full_text_annotation.pages:
         for i, block in enumerate(page.blocks):
@@ -34,35 +40,52 @@ def getTextFromVisionResponse(response):
     output = ' '.join(texts)
     return output
 
+
 def translate_text(text, target_language):
-    #translations for the OCR text
+    # Translate the text to the target language
     translator = Translator()
-    return translator.translate(text, dest=target_language).text
+    try:
+        translation = translator.translate(text, dest=target_language)
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
+
+    return translation.text
 
 
-def temp_selection(lang):
-    result = ""
-    if lang == "english":
-        result = "en"
 
-    elif lang == "hindi":
-        result = "hi"
-
-    elif lang == "gujarati":
-        result = "gu"
-
-    return result
+def get_language_code(language):
+    # Get the language code for a given language name
+    language_codes = {"english": "en", "hindi": "hi", "gujarati": "gu", "spanish": "es", "arabic": "ar"}
+    try:
+        return language_codes[language]
+    except KeyError:
+        print(f"Error: Language {language} not supported.")
+        return None
 
 
-images = np.array(Image.open("6. sample.png"))
-response = CloudVisionTextExtractor(images)
-ocr = getTextFromVisionResponse(response)
-    
-lang = temp_selection("english")
-trans = translate_text(ocr, lang)
+if __name__ == "__main__":
+    # Define the image path and target language
+    image_path = "C:\\Users\\kshit\\Downloads\\ssss.jpg"
+    target_language = "arabic"
 
-# print(ocr)
-# print(trans)
+    # Extract the text from the image
+    ocr_text = extract_text_from_image(image_path)
+    if not ocr_text:
+        print("Error: Text extraction failed.")
+        exit()
 
-# if __name__ == "__main__":
-#     main()
+    # Translate the text to the target language
+    language_code = get_language_code(target_language)
+    if not language_code:
+        exit()
+    translation = translate_text(ocr_text, language_code)
+    if not translation:
+        print("Error: Translation failed.")
+        exit()
+
+    # Print the original text and translated text
+    # print("Original text:")
+    print(ocr_text)
+    # print("Translated text:")
+    print(translation)
